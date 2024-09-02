@@ -1,0 +1,194 @@
+*{
+
+    margin: 0px;
+
+    padding: 0px;
+
+    font-family: "Poppins",sans-serif;
+
+}
+
+.btn-login{
+
+    padding:10px 15px;
+
+    background-color: black;
+
+    color: aliceblue;
+
+    cursor:pointer;
+
+}
+
+.overlay{
+
+    width: 100%;
+
+    position:fixed;
+
+    background:rgba(0, 0, 0, 0.5);
+
+    height:100vh;
+
+    top:0%;
+
+    z-index: -1;
+
+    opacity:0;
+
+    transition: 1s;
+
+}
+
+.showoverlay{
+
+    opacity: 1;
+
+    z-index: 1;
+
+}
+
+.login-form{
+
+    width: 300px;
+
+    background-color: aliceblue;
+
+    padding:30px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    z-index:9;
+
+    box-shadow:0px 0px 10px 3px #ccc ;
+
+    transform: translate(-50%,-50%);
+
+    transition: 1.25s;
+
+    opacity: 0;
+
+
+
+
+}
+
+.showloginform{
+
+    top:50%;
+
+   opacity: 1;
+
+
+
+
+}
+
+.login-form input{
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    height:35px;
+
+}
+
+.login-form button{
+
+    background-color:black;
+
+    color: aliceblue;
+
+    padding: 5px;
+
+    margin-bottom: 10px;
+
+    margin-left: 125px;
+
+
+
+
+}
+
+.login-form a{
+
+    color:black;
+
+    padding-left: 75px;
+
+}
+
+.login-form span{
+
+    position: absolute;
+
+    right: 0px;
+
+    width: 30px;
+
+    height: 30px;
+
+    top: 0px;
+
+    background-color: crimson;
+
+    text-align: center;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+}
+
+#mypassword{
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 300px; 
+
+}
+
+#myInput {
+
+    width: 100%;
+
+    padding-right: 40px; 
+
+    box-sizing: border-box; 
+
+    padding: 10px;
+
+    font-size: 16px;
+
+}
+
+#icon {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 35px;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    color: #666;
+
+    margin-top: 10px;
+
+}
+
+#icon:hover {
+
+    color: #333;
+
+}
