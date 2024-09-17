@@ -1,0 +1,468 @@
+/* Css reste */
+* {
+   margin: 0;
+   padding: 0;
+
+}
+body{
+   background: linear-gradient(245.59deg, #4d9559 0% , #38703d 28% , #133971 75.52% );
+
+}
+/* Navigation Content */
+
+
+/* Navigation: Logo section */
+#navbar #logo {
+   margin-left: 12%;
+   margin-top: 10px;
+}
+#navbar #logo a {
+   text-decoration: none;
+   font-size: 25px;
+   color: black;
+   font-style: bold;
+}
+/* Navigation List section */
+#navbar {
+   margin-left: 10px;
+   height: 65px;
+   width: 100%;
+   display: flex;
+   position: relative;
+   background-color: rgb(72, 127, 127);
+
+}
+#navbar ul {
+   display: flex;
+   margin-left: 20px;
+
+}
+#navbar ul li {
+   list-style: none;
+}
+#navbar ul li a {
+   text-decoration: none;
+   margin-top: 15px;
+   margin-left:25px;
+   margin-right: 20px;
+   display: block;
+   color: azure;
+}
+#navbar::before {
+   content: "";
+   background-color: black;
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   opacity: 0.5;
+}
+/* Navigation search Section */
+#navbar .search {
+   
+   position: flex;
+   right: 0px;
+   margin-top: 10px;
+   margin-left: 27%;
+}  
+#navbar .search input {
+   padding: 5px 10px; 
+   border-radius: 10px;
+}
+/* navbar hover */
+#navbar ul li a:hover {
+   background-color: rgb(81, 133, 168);
+   font-size: 20px;
+   border-radius: 6px;
+   padding: 4px 7px;
+}
+/* Hover for search */
+#navbar .search:hover {
+       transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+       transition-property: calc(10);
+}
+ /* box */
+ #offerBox {
+    height: 300px;
+    width: 75%;
+    margin-top: 5px;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgb(162, 206, 200);
+    display: relative;
+    display: flex;
+    background-color: linear-gradient(245.59deg, #4d9559 0% , #38703d 28% , #133971 75.52% );
+
+ }
+ #offerBox #box-image{
+    display: flex;
+    height: 200px;
+    border-radius: 20px;
+    width: auto;
+    align-items: end;
+    margin-top: 25px;
+    margin-left: 270px;
+ }
+ #offerBox #box-image img {
+    height: 200px;
+    width: auto;
+    border-radius: 20px;
+ }
+ #box-text {
+
+    width: 40%;
+    height: auto;
+    margin-top: 25px;
+    margin-left: 10px;
+    font-family: 60px;
+ }
+ #box-text p {
+   font-family: 'Times New Roman', Times, serif;
+    margin-top: 10px;
+    margin-left:25px;
+    height: auto;
+    width: 350px;
+    font-size: 24px;
+ }
+ #offerBox #offer-button {
+    
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+ }
+ #offer-button input {
+    padding: 10px 5px 10 px 5px;
+    border-radius: 10px;
+
+ }
+ span  {
+    height: auto;
+    margin-top: 50px;
+    margin-left: 12%;
+    font-size: 22px;
+    
+ }
+
+
+ /* /* @media (max-width: 800px) {
+    .Cata-items  .items {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .Cata-items .items {
+      flex: 100%;
+      max-width: 100%;
+    } 
+} */
+
+
+  .row {
+   margin-top: 20px;
+   margin-bottom: 20px;
+   height: 400px;
+   width:75% ;
+   margin-left: 12%;
+   display: flex;
+   flex-wrap: wrap;
+}
+ .box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #64b1a1;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+
+.product{
+	border-radius: 0 0 4px 4px;
+}
+.col-md {
+   width: 400px;
+	margin-top: 10px;
+   
+   }
+
+ /* brand */
+ #brand {
+    margin-top: 20px;
+    height: 400px;
+    width:75% ;
+    margin-left: 12%;
+    display: flex;
+ }
+ #brand #brand-items {
+    margin-top: 20px;
+    height: 100%;
+    width:100% ;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+ }
+ #brand #brand-items .brands {
+    height: 150px;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+ }
+ #brand #brand-items .brands img {
+    padding: auto;
+    height: 150px;
+    width: 150px;
+    object-fit: fill;
+ }
+
+ /* Footer */
+ footer{
+   bottom: 1px;
+ }
+ #footer {
+   background-color: rgb(162, 206, 200);
+    display: ;
+    margin-bottom: 10px;
+    margin-left: 12%;
+    margin-right: 12%;
+    height: 300px;
+    width: 75%;
+ }
+ #footer #footer-content {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 50%;
+    height: 100%;
+ }
+ #footer #footer-content #content {
+    display: ;
+    height: 100%;
+    width: 100px;
+ }
+ #footer #footer-content #content p {
+    font-size: 20px;
+ }
+ #footer #footer-content #payment {
+    display: ;
+    position:absolute;
+    height: auto;
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 270px;
+
+    
+ }
+ #footer #footer-content #payment .pay {
+    display:flex ;
+    margin: 10px 0px 0px 0px;
+    position: ;
+    height :50px;
+    width: 70px;
+
+ } 
+ #footer #footer-content #payment .pay img {
+    display: flex;
+    margin-top: 10px;
+    padding: auto;
+    height: 50px;
+    width: 70px;
+    object-fit: fill;
+ }
+
+#footer-link {
+    background:rgb(72, 127, 127) ;
+    display: flex;
+    height: 50px;
+    width: 100%;
+ }
+ #footer-link ul {
+    display: flex;
+    margin-left: 60%;
+    margin-bottom: 20px;
+    align-items: end;
+
+}
+#footer-link ul li {
+    list-style: none;
+}
+#footer-link ul li a {
+    text-decoration: none;
+    margin-top: 15px;
+    margin-left: 20px;
+    display: block;
+    color: azure;
+}
+/* Popup Modal Styles */
+.modal-dialog {
+   max-width: 500px; /* Adjusted for better fit */
+   margin: 1.75rem auto;
+   
+}
+
+/* Signup and Login Forms */
+#register, #log-in {
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 18px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(245.59deg, #a9b8ac 0% , #c0e7c4 28% , #133971 75.52% );
+   -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+
+.input {
+   margin: 10px;
+   height: 30px;
+   width: 200px;
+   background-color: rgb(248, 247, 249);
+   border-radius: 5px;
+}
+
+.button {
+   height: 40px;
+   width: 100px; /* Adjusted button width */
+   border-radius: 5px;
+   margin: 10px;
+   background-color: #409d67;
+   color: white;
+}
+.loginSidebutton {
+
+}
+
+#signup #dividecol {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+}
+
+#signup #col1, #signup #col2 {
+   width: 45%;
+}
+
+.modal-header h5 {
+   font-size: 1.5rem;
+}
+
+.modal-body {
+   padding: 20px;
+}
+
+
+/* for sitepage */
+.details {
+   padding: auto;
+   margin-top: 20px;
+    height: autopx;
+    width:75% ;
+    margin-left: 12%;
+    display: block;
+}
+
+.hidden{
+	display: none!important;
+}
+
+/* profile */
+
+
+.profile-container {
+   margin-top: 20px;
+   margin-bottom: 20px;
+
+   width:75% ;
+   margin-left: 12%;
+
+   background: white;
+   border-radius: 15px;
+   overflow: hidden;
+   width: 300px;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+   background: linear-gradient(to right, #00c6ff, #0072ff);
+   color: white;
+   text-align: center;
+   padding: 20px;
+   position: relative;
+}
+
+.profile-header .profile-pic {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   border: 5px solid white;
+   position: absolute;
+   left: 50%;
+   top: 40px;
+   transform: translate(-50%, -50%);
+}
+
+.profile-header .name {
+   margin: 60px 0 0 0;
+   font-size: 24px;
+}
+
+.profile-header .email {
+   margin: 10px 0 0 0;
+   font-size: 14px;
+}
+
+.profile-details {
+   padding: 20px;
+}
+
+.detail-item {
+   display: flex;
+   align-items: center;
+   margin: 10px 0;
+}
+
+.detail-item .icon {
+   width: 24px;
+   height: 24px;
+   margin-right: 10px;
+}
+
+.detail-text {
+   font-size: 16px;
+}
+
+#about {
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 24px;
+   color: white;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   height: 400px;
+   width:75% ;
+   margin-left: 12%;
+   display: flex;
+   flex-wrap: wrap;
+}

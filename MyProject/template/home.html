@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="offerBox">
+    <div id="box-text"><p>Apples contain 0 grams of fat or sodium and have no cholesterol. 
+        At 4 grams per average size apple, they are an excellent source of fiber.</p>
+         <!-- <button type="submit" id="offer-button"></button> -->
+    </div>
+    <div id="box-image"><img src="/static/img/apple.jpg" alt=""></div> 
+    
+</div>
+ <!-- <span  >Categories</span> 
+ 
+ <div id="categories">
+  
+       <div id="cata">
+        {% for category in categories %}
+        <div class="Cata-items">
+            <img src="{{ category.imageURL }}">
+            <hr>
+            
+            <p>{{ category.name }}</p>
+        
+        </div>  
+        {% endfor %} -->
+    <!-- </div> -->
+   
+  
+<!--  
+</div> 
+	{% comment %} <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4> {% endcomment %}
+
+     <span  >Products</span>
+     <div class="row">
+		 {% for product in products %} -->
+		 <!-- <div class="col-lg-4"> -->
+			<!-- <img class="thumbnail" src="{{ product.imageURL }}"> 
+            <img class="thumbnail" src="/static/img/apple.jpg">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				
+				<a class="btn btn-outline-success" href="#">View</a>
+				<h4 style="display: inline-block; float:right"><strong>${{product.price}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div> -->
+    <div>
+        <span>Plants</span>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md">
+                <img class="thumbnail" src="/static/img/apple.jpg" alt="Apple">
+                <div class="box-element product">
+                    <h6><strong>Apple</strong></h6>
+                    <hr>
+                    <a class="btn btn-success" href='{% url "test" %}'>Check Disease</a>
+                </div>
+            </div>
+    
+            <!-- Product 2 -->
+            <div class="col-md">
+                <img class="thumbnail" src="/static/img/tomato.jpg" alt="Tomato">
+                <div class="box-element product">
+                    <h6><strong>Tomato</strong></h6>
+                    <hr>
+                    <a class="btn btn-success" href='{% url "test" %}'>Check Disease</a>
+                </div>
+            </div>
+    
+            <!-- Product 3 -->
+            <div class="col-md">
+                <img class="thumbnail" src="/static/img/corn.jpg" alt="Corn">
+                <div class="box-element product">
+                    <h6><strong>Corn</strong></h6>
+                    <hr>
+                    <a class="btn btn-success" href='{% url "test" %}'>Check Disease</a>
+                </div>
+            </div>
+    
+            <!-- Product 4 -->
+            <div class="col-md">
+                <img class="thumbnail" src="/static/img/grapes.jpg" alt="Grapes">
+                <div class="box-element product">
+                    <h6><strong>Grapes</strong></h6>
+                    <hr>
+                    <a class="btn btn-success" href='{% url "test" %}'>Check Disease</a>
+                </div>
+            </div>
+        </div>
+
+     <span>Blogs</span>
+     <div id="brand">
+        <div id="brand-items">
+            <div class="brands"><img src="/static/img/apple.jpg" alt=""></div>
+            <div class="brands"><img src="/static/img/tomato.jpg" alt=""></div>
+            <div class="brands"><img src="/static/img/apple.jpg" alt=""></div>
+            <div class="brands"><img src="/static/img/tomato.jpg" alt=""></div>
+          
+        </div>
+     </div>
+     <br>
+ 
+{% endblock %}
