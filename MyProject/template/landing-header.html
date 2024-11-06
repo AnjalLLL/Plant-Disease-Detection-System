@@ -30,7 +30,7 @@
         <ul>
             <li class="items"><a href='{% url "home" %}'>Home</a></li>
 
-            <li class="items"><a href="{% url "about" %}">About</a></li>
+            <li class="items"><a href="{% url 'about' %}">About</a></li>
             <li class="items">
                 <a  href='#' data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
@@ -55,7 +55,7 @@
                 <span>Welcome back.<span>
                 <br><h6 style='color:red;'>{{ error_message }}</h6>
                 <div id="log-in">
-                    <form id="signin" action="{% url 'signin' %}" method="post">
+                    <form id="signin" action="{% url 'signin' %}" method="POST">
                         <h4 style="color:red;">{{error}}</h4>
                         {% csrf_token %}
                         <div id="col">
@@ -73,6 +73,13 @@
 </div>
 
 <!-- Signup Modal -->
+{% if messages %}
+<ul>
+{% for message in messages %}
+    <li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"> <!-- Centered Modal -->
         <div class="modal-content">
@@ -85,7 +92,7 @@
             <div class="modal-body">
                 <span>Create your account.<span>
                 <div id="register">
-                    <form id="signup" action="#" method="post">
+                    <form id="signup" action="{% url 'signup' %}" method="POST">
                         {% csrf_token %}
                         <div id="dividecol">
                             <div id="col1">
