@@ -86,5 +86,53 @@ def about(request):
 #         del request.session['user']
 #     return redirect('signin')
 
+def handle_uploaded_file(f):
+    file_path = os.path.join(settings.MEDIA_ROOT, 'uploads', f.name)
+    with open(file_path, 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+    return file_path
+
 def test(request):
-     return render(request,"test.html")
+    def test(request):
+    if request.method == "POST":
+        if "image" in request.FILES:
+            uploaded_image = request.FILES["image"]
+            file_path = handle_uploaded_file(uploaded_image)  # Save the uploaded image
+
+            # Make a prediction using the image
+            predicted_class = predict(file_path)
+
+            # Fetch disease info based on predicted class
+            disease_info = db["disease_data"].find_one({"disease_name": predicted_class})
+            
+            # If no information is found, handle gracefully
+            if not disease_info:
+                partial_info = "No information available for this disease."
+                full_info = None
+            else:
+                # Prepare partial and full information
+                partial_info = {
+                    "disease_name": disease_info.get("disease_name", "Unknown disease"),
+                    "description": disease_info.get("description", "Description not available."),
+                }
+
+                full_info = {
+                    "disease_name": disease_info.get("disease_name", "Unknown disease"),
+                    "description": disease_info.get("description", "Description not available."),
+                    "prevention": disease_info.get("prevention", "Prevention information not available."),
+                    "treatment": disease_info.get("treatment", "Treatment information not available."),
+                }
+
+            # Check if the user is authenticated
+            is_authenticated = request.COOKIES.get('auth_token') is not None
+
+            return render(request, "test.html", {
+                "predicted_class": predicted_class,
+                "partial_info": partial_info,
+                "full_info": full_info if is_authenticated else None,
+                "is_authenticated": is_authenticated,
+            })
+
+    # Default render for GET requests
+    return render(request, "test.html", {"is_authenticated": False})
