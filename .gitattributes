@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.pyd filter=lfs diff=lfs merge=lfs -text
 *.lib filter=lfs diff=lfs merge=lfs -text
 tf_2_15_env/Lib/site-packages/clang/native/libclang.dll filter=lfs diff=lfs merge=lfs -text
@@ -6,3 +7,6 @@ tf_2_15_env/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.lib 
 tf_2_15_env/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd filter=lfs diff=lfs merge=lfs -text
 tf_2_15_env/Lib/site-packages/tensorflow/python/*.pyd filter=lfs diff=lfs merge=lfs -text
 tf_2_15_env/Lib/site-packages/tensorflow/python/*.lib filter=lfs diff=lfs merge=lfs -text
+=======
+MyProject/myapp/models/rf_fix_model.pkl filter=lfs diff=lfs merge=lfs -text
+>>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59

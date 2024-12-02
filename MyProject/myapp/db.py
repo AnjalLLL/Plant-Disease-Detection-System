@@ -4,6 +4,7 @@ from django.conf import settings
 # Connect to MongoDB
 def get_db():
     client = MongoClient('mongodb://localhost:27017')
+<<<<<<< HEAD
     db = client['Project_Database']
     print("connected to mongodb")
     return db
@@ -327,6 +328,12 @@ for disease in disease_data:
     if not disease_collection.find_one({"disease_name": disease["disease_name"]}):
         # Insert the disease data if not found
         disease_collection.insert_one(disease)
+=======
+    db = client['my_users']
+    print("connected to mongodb")
+    return db
+
+>>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
 
 
         

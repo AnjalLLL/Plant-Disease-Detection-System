@@ -75,7 +75,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MyProject.wsgi.application'
 
+<<<<<<< HEAD
 
+=======
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy'
+    }
+}
+>>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -125,9 +133,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MongoDB connection settings
+<<<<<<< HEAD
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.dummy',  # Dummy engine to bypass Django ORM errors
     }
 }
+=======
+>>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
