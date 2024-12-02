@@ -4,3 +4,7 @@ This is our seventh semester project related to data science.
 - To integrate model with web we used django backend
 - Users data and disease data were managed by mongodb.
   
+Team members : 
+Ashmita Timalsina - https://github.com/Ashmita1555
+Ruth Ghising - https://github.com/RuthTmg
+Anjal Ghimire
