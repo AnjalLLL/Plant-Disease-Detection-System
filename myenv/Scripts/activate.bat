@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Seventh Semeter Project\Plant Disease Detection System\myenv
+set VIRTUAL_ENV=C:\Users\ASHMITA\OneDrive\Desktop\cloned\Plant-Disease-Detection-System\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 

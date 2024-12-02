@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload with Camera Option</title>
+    <title>Disease Prediction</title>
     <style>
+        /* Your existing CSS */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #8fa4b8;
@@ -31,14 +33,10 @@
         .upload-box h3 {
             margin-bottom: 15px;
             color: #333;
-            font-family: Arial, sans-serif;
             font-weight: bold;
         }
         .upload-box p {
             color: #666;
-        }
-        .file-input {
-            display: none;
         }
         .custom-button {
             padding: 12px 25px;
@@ -53,12 +51,6 @@
         .custom-button:hover {
             background-color: #0056b3;
         }
-        video, canvas {
-            display: none;
-            width: 100%;
-            height: auto;
-            margin-top: 10px;
-        }
         .detect-section {
             margin-top: 30px;
             text-align: center;
@@ -71,112 +63,61 @@
             color: #3fbb83;
             font-weight: bold;
         }
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            background-color: #fff;
-            display: none;
-            font-weight: bold;
+        .blurred {
+            filter: blur(5px);
+            transition: filter 1s ease;
         }
-        .result.success {
-            color: green;
-        }
-        .result.failure {
-            color: red;
+        .authenticated .blurred {
+            filter: none;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="upload-box">
+            <h3>Upload an Image for Prediction</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="fileInput" class="custom-button">
+                    <input type="file" name="image" id="fileInput" required>
+                </label>
+                <button type="submit" class="custom-button">Predict</button>
+            </form>
+        </div>
 
-<div class="container">
-    <!-- Upload Box -->
-    <div class="upload-box">
-        <h3>Upload or Capture Image</h3>
-        <p>Files Supported: .jpg, .png</p>
-        
-        <!-- File Upload Section -->
-        <input type="file" id="file-upload" class="file-input" accept=".jpg,.png">
-        <label for="file-upload" class="custom-button">Choose File</label>
-        
-        <!-- Camera Capture Section -->
-        <button id="capture-button" class="custom-button">Capture from Camera</button>
-        <video id="camera" autoplay></video>
-        <canvas id="canvas"></canvas>
-        <button id="snap-button" class="custom-button" style="display:none;">Take Photo</button>
+        {% if predicted_class %}
+        <div class="detect-section">
+            <h4>Predicted Class: {{ predicted_class }}</h4>
+
+            <h2>Disease Information</h2>
+            <p><strong>Name:</strong> {{ partial_info.disease_name }}</p>
+            <p><strong>Description:</strong> {{ partial_info.description }}</p>
+
+            <!-- Full Information (Blurred until logged in) -->
+            <div id="disease-details" class="{% if not is_authenticated %}blurred{% endif %}">
+                <p><strong>Prevention:</strong></p>
+                <ul>
+                    {% for item in full_info.prevention %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><strong>Treatment:</strong></p>
+                <ul>
+                    {% for item in full_info.treatment %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if not is_authenticated %}
+            <p>Please log in to view full information.</p>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 
-    <!-- Detect Section -->
-    <div class="detect-section">
-        <h4>Run Disease Detection</h4>
-        <p>Once you've uploaded or captured an image, click below to start detection:</p>
-        <button id="detect-button" class="custom-button" disabled>Detect</button>
-        <div id="detection-result" class="result"></div>
-    </div>
-</div>
-
-<script>
-    const fileInput = document.getElementById('file-upload');
-    const detectButton = document.getElementById('detect-button');
-    const detectionResult = document.getElementById('detection-result');
-    const captureButton = document.getElementById('capture-button');
-    const snapButton = document.getElementById('snap-button');
-    const camera = document.getElementById('camera');
-    const canvas = document.getElementById('canvas');
-    let imageData;
-
-    // Handle file selection
-    fileInput.addEventListener('change', function() {
-        if (this.files && this.files.length > 0) {
-            detectButton.disabled = false;
-            alert("File selected: " + this.files[0].name);
-        }
-    });
-
-    // Handle camera capture
-    captureButton.addEventListener('click', function() {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                camera.style.display = 'block';
-                camera.srcObject = stream;
-                snapButton.style.display = 'block';
-            })
-            .catch(err => {
-                alert("Error accessing the camera: " + err.message);
-            });
-    });
-
-    // Capture photo from video
-    snapButton.addEventListener('click', function() {
-        const context = canvas.getContext('2d');
-        canvas.width = camera.videoWidth;
-        canvas.height = camera.videoHeight;
-        context.drawImage(camera, 0, 0, camera.videoWidth, camera.videoHeight);
-        imageData = canvas.toDataURL('image/png');
-        
-        camera.style.display = 'none';
-        snapButton.style.display = 'none';
-        detectButton.disabled = false;
-
-        alert("Photo captured!");
-    });
-
-    // Simulate detection on Detect button click
-    detectButton.addEventListener('click', function() {
-        detectionResult.style.display = 'block';
-        detectionResult.innerHTML = '<strong>Processing...</strong>';
-
-        setTimeout(() => {
-            // Simulate detection result (replace this with actual logic)
-            const result = Math.random() > 0.5 ? "Disease Detected" : "No Disease Detected";
-            detectionResult.innerHTML = `<strong>Result:</strong> ${result}`;
-            detectionResult.classList.toggle(result === "Disease Detected" ? "success" : "failure");
-        }, 2000); // Simulate a delay for processing
-    });
-</script>
-
+    
 </body>
 </html>
-
 {% endblock %}

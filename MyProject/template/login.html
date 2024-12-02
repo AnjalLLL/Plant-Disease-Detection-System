@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="/static/styles.css"> <!-- Ensure the path is correct -->
+  <script src="/static/js/scripts.js"></script>
+</head>
+<body>
+    
+    <div class="main_register">
+        
+        <html>
+            <link rel="stylesheet" href="/static/css/style.css">
+            <body>
+            <br><br><br><br>
+                <div id="log-in">
+                <form id="signin" action="#" method="post" >
+                    <h4 style="color:red;" >{{error}}</h4>
+                    {% csrf_token %}
+                        <div id="col">
+                            Emails <br><input class="input " type="email" name="email" placeholder="Enter your number or emails" required > <br>
+                            Password <br><input class="input" type="password" name="password" value="" required> <br>
+                            <input class="button" type="submit" value="Log in">
+                            <a href="{% url 'signup' %}"><input class="button" type="button" type="submit" value="Sign Up"></a> 
+                        </div>
+                   
+                   <div>{% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" style="color: red;">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+                
+                
+            </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            </body>
+            </html>
+        {% endblock %}

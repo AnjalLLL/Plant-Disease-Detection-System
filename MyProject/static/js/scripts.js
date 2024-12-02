@@ -1,38 +1,11 @@
-// Handle Login Form Submission
-document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    // Get form values
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-
-    // Simulate form validation or submission
-    if (email && password) {
-        alert('Login Successful!');
-
-        // Close the modal after login
-        $('#loginModal').modal('hide');
-    } else {
-        alert('Please fill in all the fields.');
+window.onload = function() {
+    const messageContainer = document.getElementById('message-container');
+    if (messageContainer) {
+      setTimeout(function() {
+        messageContainer.style.opacity = 0; // Fade out
+        setTimeout(function() {
+          messageContainer.style.display = 'none'; // Actually hide after fade
+        }, 1000); // 1 second for fade effect
+      }, 5000); // 5000 milliseconds = 5 seconds
     }
-});
-
-// Handle Signup Form Submission
-document.getElementById('signupForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    // Get form values
-    const name = document.getElementById('signupName').value;
-    const email = document.getElementById('signupEmail').value;
-    const password = document.getElementById('signupPassword').value;
-
-    // Simulate form validation or submission
-    if (name && email && password) {
-        alert('Signup Successful!');
-
-        // Close the modal after signup
-        $('#signupModal').modal('hide');
-    } else {
-        alert('Please fill in all the fields.');
-    }
-});
+  }
