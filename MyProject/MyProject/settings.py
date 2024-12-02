@@ -49,8 +49,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myapp.middleware.AuthenticationMiddleware',
+
 ]
 
+    
+    
 ROOT_URLCONF = 'MyProject.urls'
 
 TEMPLATES = [
@@ -71,11 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MyProject.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.dummy'
-    }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -125,3 +125,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MongoDB connection settings
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy',  # Dummy engine to bypass Django ORM errors
+    }
+}

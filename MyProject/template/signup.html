@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Ensure the path is correct -->
+  <script src="/static/js/scripts.js"></script>
+</head>
+<body>
+    
+    <div class="main_register">
+                <span>Create your account.<span>
+                <div id="register">
+                    <form id="signup" action="" method="POST">
+                        {% csrf_token %}
+                        <div id="dividecol">
+                            <div id="col1">
+                                Full Name <br><input class="input" type="text" name="name" placeholder="Enter your name"required><br>
+                                Email <br><input class="input" type="email" name="email" placeholder="Enter your email"required><br>
+                                Gender: <input type="radio" name="Gender" value="m">Male 
+                                <input type="radio" name="Gender" value="f">Female<br><br>
+                                Address <br><input class="input" type="text" name="address"><br>
+                            </div>
+                            <div id="col2">
+                                Phone <br><input class="input" type="number" name="phone" placeholder="Enter your number"><br>
+                                Password <br><input class="input" type="password" name="password1" value=""required><br>
+                                Confirm Password <br><input class="input" type="password" name="password2" value=""required><br><br>
+                                <input class="button" type="submit" value="Sign Up">
+                                <p class="signup-link">Already have an account? <a href="signup.html">Login here</a></p>
+                            </div>
+                           <div>
+                            {% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" style="color: red;">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+</div> 
+
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

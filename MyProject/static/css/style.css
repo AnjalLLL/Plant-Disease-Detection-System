@@ -236,90 +236,14 @@ body{
     object-fit: fill;
  }
 
- /* Footer */
- footer{
-   bottom: 1px;
- }
- #footer {
-   background-color: rgb(162, 206, 200);
-    display: ;
-    margin-bottom: 10px;
-    margin-left: 12%;
-    margin-right: 12%;
-    height: 300px;
-    width: 75%;
- }
- #footer #footer-content {
-    display: flex;
-    margin-top: 15px;
-    margin-left: 20px;
-    width: 50%;
-    height: 100%;
- }
- #footer #footer-content #content {
-    display: ;
-    height: 100%;
-    width: 100px;
- }
- #footer #footer-content #content p {
-    font-size: 20px;
- }
- #footer #footer-content #payment {
-    display: ;
-    position:absolute;
-    height: auto;
-    width: 400px;
-    margin-top: 10px;
-    margin-left: 270px;
+
 
     
- }
- #footer #footer-content #payment .pay {
-    display:flex ;
-    margin: 10px 0px 0px 0px;
-    position: ;
-    height :50px;
-    width: 70px;
+ 
+ 
 
- } 
- #footer #footer-content #payment .pay img {
-    display: flex;
-    margin-top: 10px;
-    padding: auto;
-    height: 50px;
-    width: 70px;
-    object-fit: fill;
- }
 
-#footer-link {
-    background:rgb(72, 127, 127) ;
-    display: flex;
-    height: 50px;
-    width: 100%;
- }
- #footer-link ul {
-    display: flex;
-    margin-left: 60%;
-    margin-bottom: 20px;
-    align-items: end;
 
-}
-#footer-link ul li {
-    list-style: none;
-}
-#footer-link ul li a {
-    text-decoration: none;
-    margin-top: 15px;
-    margin-left: 20px;
-    display: block;
-    color: azure;
-}
-/* Popup Modal Styles */
-.modal-dialog {
-   max-width: 500px; /* Adjusted for better fit */
-   margin: 1.75rem auto;
-   
-}
 
 /* Signup and Login Forms */
 #register, #log-in {
@@ -329,9 +253,9 @@ body{
    display: flex;
    justify-content: center;
    align-items: center;
-   background: linear-gradient(245.59deg, #a9b8ac 0% , #c0e7c4 28% , #133971 75.52% );
+   background: linear-gradient(245.59deg, #5d6861b7 0% , #c0e7c4 28% , #6b7362 75.52% );
    -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
-    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgb(164, 192, 175);
     box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
 }
 
@@ -348,11 +272,13 @@ body{
    width: 100px; /* Adjusted button width */
    border-radius: 5px;
    margin: 10px;
-   background-color: #409d67;
+   margin-top: 0px;
+   background-color: #355643;
    color: white;
 }
-.loginSidebutton {
-
+.main_register {
+   width: 75%;
+   margin-left: 12%;
 }
 
 #signup #dividecol {
@@ -363,15 +289,9 @@ body{
 
 #signup #col1, #signup #col2 {
    width: 45%;
+   margin-top: 10px;
 }
 
-.modal-header h5 {
-   font-size: 1.5rem;
-}
-
-.modal-body {
-   padding: 20px;
-}
 
 
 /* for sitepage */
@@ -465,4 +385,13 @@ body{
    margin-left: 12%;
    display: flex;
    flex-wrap: wrap;
+}
+.blurred {
+   filter: blur(5px);
+   pointer-events: none;  /* Disable interaction with the blurred content */
+}
+
+.clear {
+   filter: none;
+   pointer-events: auto;  /* Enable interaction with the clear content */
 }

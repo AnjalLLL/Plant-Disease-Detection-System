@@ -1,90 +1,93 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django import forms
-from .models import *
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from werkzeug.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from django.urls import reverse
 from .db import get_db
-
-
+from .predict import predict
+import os
+from django.conf import settings
+import uuid
+db = get_db()  # MongoDB connection setup
 
 def home(request):
     return render(request, 'home.html')
 
+def about(request):
+    return render(request, "about.html")
+
+# Signup view
 def signup(request):
     if request.method == "POST":
-      #  uname = request.POST.get("uname")
         full_name = request.POST.get("name")
         email = request.POST.get("email")
-        gender = request.POST.get("Gender")
-        address = request.POST.get("address")
-        phone = request.POST.get("phone")
         password = request.POST.get("password1")
         confirm_password = request.POST.get("password2")
-        #Hash the password before storing it
-        
-        if password != confirm_password:
-            messages.error(request,"Passwords do not match!", "error")
-            return render(request, 'about.html')
 
-        # Hash the password before storing it
+        # Validate passwords
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match!")
+            return render(request, 'signup.html')
+
+        # Hash the password
         hashed_password = generate_password_hash(password)
 
-        db = get_db()
+        # Check if email exists
+        if db.user.find_one({'email': email}):
+            messages.error(request, "Email already exists!")
+            return render(request, 'signup.html')
 
-        # Check if the email already exists
-        if db.users.find_one({'email': email}):
-            messages.error(request,"Email already exists!")
-            return render(request, 'base.html')
-
-        # Insert user into the users collection
-        db.users.insert_one({
+        # Insert user data into MongoDB
+        db.user.insert_one({
             'full_name': full_name,
-            'password': hashed_password,
             'email': email,
-            'phone': phone,
-            'address': address,
-            'gender': gender,
+            'password': hashed_password,
         })
 
-        messages.success(request,"Signup successful! Please log in.")
-        return redirect('about')
+        messages.success(request, "Signup successful! Please log in.")
+        return redirect('login')
 
-    return render(request, 'home.html')
+    return render(request, 'signup.html')
 
-def signin(request):
-    db = get_db()  # Get the database connection
-    users_collection = db["users"]
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
 
-        # Find the user by email
-        user = db.users.find_one({'email': email})
+# Login View
+def login(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
-        # Check if user exists and password is correct
-        if user and check_password_hash(user['password'], password):
-            # Successful login logic here (e.g., set session)
-            #request.session['user_id'] = user['_id']  # Storing user ID in session
-            return redirect('home')  # Redirect to home page after successful login
+        # Query MongoDB for user
+        user = db.user.find_one({"email": email})
+        if user and check_password_hash(user["password"], password):
+            # Generate a unique token
+            token = str(uuid.uuid4())
+
+            # Save the token in the database
+            db.user.update_one({"email": email}, {"$set": {"auth_token": token}})
+
+            # Set the token in a cookie
+            response = redirect('test')
+            response.set_cookie('auth_token', token, httponly=True)
+
+            messages.success(request, "Login successful!")
+            return response
         else:
-            # If invalid credentials, render the login page with an error
-            messages.error(request, "Invalid email or password")
-            return render(request, 'about.html')
+            messages.error(request, "Invalid email or password!")
+            return render(request, "login.html")
 
-    return render(request, 'base.html')
+    return render(request, "login.html")
+def logout(request):
+    # Clear the auth_token from the cookies
+    response = redirect('login')  # Redirect to the login page after logout
+    response.delete_cookie('auth_token')  # Remove token from cookies
 
-def about(request):
-  return render(request,"about.html")
+    messages.success(request, "Logged out successfully!")
+    return response
 
-# def logout_view(request):
-#     user = get_logged_in_user(request)
-#     if user in request.session:
-#         del request.session['user']
-#     return redirect('signin')
 
-def test(request):
-     return render(request,"test.html")
+# Handle uploaded files
+
+
+# Test view (Disease prediction)
+# Test view (Disease prediction)
+# Test view (Disease prediction)
+# Test view (Disease prediction)
