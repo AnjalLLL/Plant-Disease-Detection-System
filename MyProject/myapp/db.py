@@ -1,15 +1,58 @@
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash
 from django.conf import settings
-# Connect to MongoDB
-def get_db():
-    client = MongoClient('mongodb://localhost:27017')
-<<<<<<< HEAD
-    db = client['Project_Database']
-    print("connected to mongodb")
-    return db
-db = get_db()
 
+
+
+import os
+from dotenv import load_dotenv
+from pymongo import MongoClient
+import urllib.parse
+
+# Load environment variables from the .env file
+load_dotenv()
+
+def get_db():
+    # Fetch the raw MongoDB username and password from the environment
+    username = os.getenv("MONGO_USERNAME")
+    password = os.getenv("MONGO_PASSWORD")
+
+    # Ensure the username and password are strings before encoding
+    if not isinstance(username, str) or not isinstance(password, str):
+        raise TypeError("Username and password must be strings")
+
+    # Encode the username and password as bytes, then URL encode
+    encoded_username = urllib.parse.quote_plus(username.encode('utf-8'))
+    encoded_password = urllib.parse.quote_plus(password.encode('utf-8'))
+
+    # Construct the MongoDB URI with the encoded credentials
+    mongo_uri = f"mongodb+srv://{encoded_username}:{encoded_password}@project-1.ourfx.mongodb.net/Project_Database?retryWrites=true&w=majority"
+    
+    # Debug: Print out the value of the MongoDB URI
+    print(f"MongoDB URI loaded: {mongo_uri}")
+
+    if not mongo_uri:
+        raise ValueError("MongoDB URI is not set in the .env file")
+
+    # Connect to MongoDB using the constructed URI
+    client = MongoClient(mongo_uri)
+    
+    # Assuming you're using the 'Project_Database'
+    db = client.get_database("Project_Database")
+    
+    return db
+
+# Get the MongoDB connection and perform any action
+try:
+    db = get_db()
+    print("MongoDB connection established successfully!")
+except Exception as e:
+    print(f"Error: {e}")
+
+    
+   
+
+db=get_db()
 # Step 3: Access the 'disease_info' collection (will be created if it doesn't exist)
 disease_collection = db.disease_data
 
@@ -328,12 +371,9 @@ for disease in disease_data:
     if not disease_collection.find_one({"disease_name": disease["disease_name"]}):
         # Insert the disease data if not found
         disease_collection.insert_one(disease)
-=======
-    db = client['my_users']
-    print("connected to mongodb")
-    return db
 
->>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
+    
+
 
 
         

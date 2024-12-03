@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
 from django.contrib import messages
 from werkzeug.security import generate_password_hash, check_password_hash
 from django.urls import reverse
@@ -8,8 +7,6 @@ from .predict import predict
 import os
 from django.conf import settings
 import uuid
-db = get_db()  # MongoDB connection setup
-=======
 from django.contrib.auth import authenticate, login
 from django import forms
 from .models import *
@@ -19,81 +16,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from werkzeug.security import generate_password_hash,check_password_hash
 from .db import get_db
-
-
->>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
+db = get_db()
 
 def home(request):
     return render(request, 'home.html')
 
-<<<<<<< HEAD
-=======
-def signup(request):
-    if request.method == "POST":
-      #  uname = request.POST.get("uname")
-        full_name = request.POST.get("name")
-        email = request.POST.get("email")
-        gender = request.POST.get("Gender")
-        address = request.POST.get("address")
-        phone = request.POST.get("phone")
-        password = request.POST.get("password1")
-        confirm_password = request.POST.get("password2")
-        #Hash the password before storing it
-        
-        if password != confirm_password:
-            messages.error(request,"Passwords do not match!", "error")
-            return render(request, 'about.html')
-
-        # Hash the password before storing it
-        hashed_password = generate_password_hash(password)
-
-        db = get_db()
-
-        # Check if the email already exists
-        if db.users.find_one({'email': email}):
-            messages.error(request,"Email already exists!")
-            return render(request, 'base.html')
-
-        # Insert user into the users collection
-        db.users.insert_one({
-            'full_name': full_name,
-            'password': hashed_password,
-            'email': email,
-            'phone': phone,
-            'address': address,
-            'gender': gender,
-        })
-
-        messages.success(request,"Signup successful! Please log in.")
-        return redirect('about')
-
-    return render(request, 'home.html')
-
-def signin(request):
-    db = get_db()  # Get the database connection
-    users_collection = db["users"]
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        # Find the user by email
-        user = db.users.find_one({'email': email})
-
-        # Check if user exists and password is correct
-        if user and check_password_hash(user['password'], password):
-            # Successful login logic here (e.g., set session)
-            #request.session['user_id'] = user['_id']  # Storing user ID in session
-            return redirect('home')  # Redirect to home page after successful login
-        else:
-            # If invalid credentials, render the login page with an error
-            messages.error(request, "Invalid email or password")
-            return render(request, 'about.html')
-
-    return render(request, 'base.html')
-
->>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
 def about(request):
-    return render(request, "about.html")
+    return render(request, 'about.html')
 
 # Signup view
 def signup(request):
@@ -103,7 +32,7 @@ def signup(request):
         password = request.POST.get("password1")
         confirm_password = request.POST.get("password2")
 
-<<<<<<< HEAD
+
         # Validate passwords
         if password != confirm_password:
             messages.error(request, "Passwords do not match!")
@@ -128,7 +57,6 @@ def signup(request):
         return redirect('login')
 
     return render(request, 'signup.html')
-
 
 # Login View
 def login(request):
@@ -156,6 +84,8 @@ def login(request):
             return render(request, "login.html")
 
     return render(request, "login.html")
+
+#Logout View
 def logout(request):
     # Clear the auth_token from the cookies
     response = redirect('login')  # Redirect to the login page after logout
@@ -166,13 +96,6 @@ def logout(request):
 
 
 # Handle uploaded files
-
-
-# Test view (Disease prediction)
-# Test view (Disease prediction)
-# Test view (Disease prediction)
-# Test view (Disease prediction)
-=======
 def handle_uploaded_file(f):
     file_path = os.path.join(settings.MEDIA_ROOT, 'uploads', f.name)
     with open(file_path, 'wb+') as destination:
@@ -180,8 +103,9 @@ def handle_uploaded_file(f):
             destination.write(chunk)
     return file_path
 
+#Test View
 def test(request):
-    def test(request):
+    
     if request.method == "POST":
         if "image" in request.FILES:
             uploaded_image = request.FILES["image"]
@@ -223,4 +147,4 @@ def test(request):
 
     # Default render for GET requests
     return render(request, "test.html", {"is_authenticated": False})
->>>>>>> d3ad71db99d5001a4a13950c648f52cae6206c59
+
