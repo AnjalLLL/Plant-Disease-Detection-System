@@ -77,7 +77,7 @@ def login(request):
             response = redirect('test')
             response.set_cookie('auth_token', token, httponly=True)
 
-            messages.success(request, "Login successful!")
+            # messages.success(request, "Login successful!")
             return response
         else:
             messages.error(request, "Invalid email or password!")

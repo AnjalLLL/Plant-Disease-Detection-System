@@ -111,7 +111,7 @@
             </div>
 
             {% if not is_authenticated %}
-            <p>Please log in to view full information.</p>
+            <p>Please <a href="{% url 'login' %}">log in</a>  to view full information.</p>
             {% endif %}
         </div>
         {% endif %}
