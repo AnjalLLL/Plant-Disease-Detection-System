@@ -60,17 +60,7 @@ body{
    opacity: 0.5;
 }
 /* Navigation search Section */
-#navbar .search {
-   
-   position: flex;
-   right: 0px;
-   margin-top: 10px;
-   margin-left: 27%;
-}  
-#navbar .search input {
-   padding: 5px 10px; 
-   border-radius: 10px;
-}
+
 /* navbar hover */
 #navbar ul li a:hover {
    background-color: rgb(81, 133, 168);
@@ -78,11 +68,60 @@ body{
    border-radius: 6px;
    padding: 4px 7px;
 }
-/* Hover for search */
-#navbar .search:hover {
-       transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-       transition-property: calc(10);
+/* new nav */
+#navbar {
+  background-color: #f2f2f2;
+  padding: 20px;
 }
+
+#logo {
+  float: left;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#navbar li {
+  float: left;
+}
+
+#navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;   
+
+}
+
+#navbar li a:hover {
+  background-color: #ddd;   
+
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  #navbar ul {
+    position: relative;
+    width: 100%;
+  }
+
+  #navbar li {
+    float: none;
+    display: inline-block;
+  }
+
+  #navbar li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
  /* box */
  #offerBox {
     height: 300px;
@@ -157,20 +196,6 @@ body{
  }
 
 
- /* /* @media (max-width: 800px) {
-    .Cata-items  .items {
-      flex: 50%;
-      max-width: 50%;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .Cata-items .items {
-      flex: 100%;
-      max-width: 100%;
-    } 
-} */
-
 
   .row {
    margin-top: 20px;
@@ -204,46 +229,6 @@ body{
 	margin-top: 10px;
    
    }
-
- /* brand */
- #brand {
-    margin-top: 20px;
-    height: 400px;
-    width:75% ;
-    margin-left: 12%;
-    display: flex;
- }
- #brand #brand-items {
-    margin-top: 20px;
-    height: 100%;
-    width:100% ;
-    margin-left: 20px;
-    display: flex;
-    flex-wrap: wrap;
- }
- #brand #brand-items .brands {
-    height: 150px;
-    width: 150px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
- }
- #brand #brand-items .brands img {
-    padding: auto;
-    height: 150px;
-    width: 150px;
-    object-fit: fill;
- }
-
-
-
-    
- 
- 
-
-
-
 
 /* Signup and Login Forms */
 #register, #log-in {
@@ -290,88 +275,6 @@ body{
 #signup #col1, #signup #col2 {
    width: 45%;
    margin-top: 10px;
-}
-
-
-
-/* for sitepage */
-.details {
-   padding: auto;
-   margin-top: 20px;
-    height: autopx;
-    width:75% ;
-    margin-left: 12%;
-    display: block;
-}
-
-.hidden{
-	display: none!important;
-}
-
-/* profile */
-
-
-.profile-container {
-   margin-top: 20px;
-   margin-bottom: 20px;
-
-   width:75% ;
-   margin-left: 12%;
-
-   background: white;
-   border-radius: 15px;
-   overflow: hidden;
-   width: 300px;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.profile-header {
-   background: linear-gradient(to right, #00c6ff, #0072ff);
-   color: white;
-   text-align: center;
-   padding: 20px;
-   position: relative;
-}
-
-.profile-header .profile-pic {
-   width: 100px;
-   height: 100px;
-   border-radius: 50%;
-   border: 5px solid white;
-   position: absolute;
-   left: 50%;
-   top: 40px;
-   transform: translate(-50%, -50%);
-}
-
-.profile-header .name {
-   margin: 60px 0 0 0;
-   font-size: 24px;
-}
-
-.profile-header .email {
-   margin: 10px 0 0 0;
-   font-size: 14px;
-}
-
-.profile-details {
-   padding: 20px;
-}
-
-.detail-item {
-   display: flex;
-   align-items: center;
-   margin: 10px 0;
-}
-
-.detail-item .icon {
-   width: 24px;
-   height: 24px;
-   margin-right: 10px;
-}
-
-.detail-text {
-   font-size: 16px;
 }
 
 #about {
