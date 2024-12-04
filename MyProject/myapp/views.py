@@ -18,8 +18,8 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from .db import get_db
 db = get_db()
 
-def home(request):
-    return render(request, 'home.html')
+#def home(request):
+    #return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
@@ -148,3 +148,13 @@ def test(request):
     # Default render for GET requests
     return render(request, "test.html", {"is_authenticated": False})
 
+
+
+def home(request):
+    plant_data = db.plant_info
+
+    # Fetch all plant data
+    plants = plant_data.find()
+
+    # Pass the plant data to the template
+    return render(request, 'home.html', {'plants': plants})
