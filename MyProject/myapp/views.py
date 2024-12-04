@@ -148,3 +148,11 @@ def test(request):
     # Default render for GET requests
     return render(request, "test.html", {"is_authenticated": False})
 
+def home(request):
+    plant_data = db.plant_info
+
+    # Fetch all plant data
+    plants = plant_data.find()
+
+    # Pass the plant data to the template
+    return render(request, 'home.html', {'plants': plants})

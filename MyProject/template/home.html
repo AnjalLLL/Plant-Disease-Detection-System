@@ -1,19 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="offerBox">
-    <div id="box-text"><p>Apples contain 0 grams of fat or sodium and have no cholesterol. 
-        At 4 grams per average size apple, they are an excellent source of fiber.</p>
-         <!-- <button type="submit" id="offer-button"></button> -->
+
+
+
+    <!-- Offer Box Slider Section -->
+<div id="offerBox" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for plant in plants %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                <div class="d-flex">
+                    <!-- Offer Box Image -->
+                    <div class="box-image">
+                        <img src="{{ plant.image_url }}" alt="{{ plant.plant_name }}" class="d-block w-100">
+                    </div>
+
+                    <!-- Offer Box Text -->
+                    <div id="box-text">
+                        <h3>{{ plant.plant_name }}</h3> <!-- Plant name -->
+                        <p>{{ plant.facts }}</p> <!-- Plant facts -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    <div id="box-image"><img src="/static/img/apple.jpg" alt=""></div> 
-    
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#offerBox" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#offerBox" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
- 
-    
-            
-			
-    <div>
+
+<br>
+<div>
         <span>Plants</span>
         <div class="row">
             <!-- Product 1 -->
@@ -57,16 +80,6 @@
             </div>
         </div>
 
-     <span>Blogs</span>
-     <div id="brand">
-        <div id="brand-items">
-            <div class="brands"><img src="/static/img/apple.jpg" alt=""></div>
-            <div class="brands"><img src="/static/img/tomato.jpg" alt=""></div>
-            <div class="brands"><img src="/static/img/apple.jpg" alt=""></div>
-            <div class="brands"><img src="/static/img/tomato.jpg" alt=""></div>
-          
-        </div>
-     </div>
-     <br>
+     
  
 {% endblock %}

@@ -370,7 +370,35 @@ for disease in disease_data:
         disease_collection.insert_one(disease)
 
     
-
+plant_data=db.plant_info
+plant_info=[
+  
+  {
+    "plant_name": "Apple",
+    "facts": "Apples are a good source of fiber and vitamin C, making them a healthy snack option. They are one of the most widely cultivated fruits globally, with over 7,500 varieties. The apple tree originated in Central Asia and has been spread and cultivated across the world due to its versatility and health benefits.",
+    "image_url": "/static/img/apple.jpg"
+  },
+  {
+    "plant_name": "Corn",
+    "facts": "Corn is a staple crop grown widely around the world and is a key ingredient in many foods and products, such as corn syrup and ethanol. This versatile grain comes in various colors, including yellow, white, red, and purple. It has been a fundamental part of diets and industries for centuries, especially in the Americas.",
+    "image_url": "/static/img/corn.jpg"
+  },
+  {
+    "plant_name": "Grape",
+    "facts": "Grapes are small, juicy fruits that have been cultivated for thousands of years, primarily for consumption and wine production. Rich in antioxidants like resveratrol, grapes are beneficial for heart health. They are available in many varieties, including seedless and seeded, and come in colors like green, red, and purple.",
+    "image_url": "/static/img/grapes.jpg"
+  },
+  {
+    "plant_name": "Tomato",
+    "facts": "Tomatoes are technically a fruit but are often treated as a vegetable in culinary uses. They are rich in lycopene, a powerful antioxidant linked to numerous health benefits. Native to South America, tomatoes have become a key ingredient in cuisines worldwide and are valued for their vibrant flavor and nutritional content.",
+    "image_url": "/static/img/tomato.jpg"
+  }
+]
+for plant in plant_info:
+    # Check if the disease already exists in the database
+    if not plant_data.find_one({"plant_name": plant["plant_name"]}):
+        # Insert the disease data if not found
+        plant_data.insert_one(plant)
 
 
         
