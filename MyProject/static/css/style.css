@@ -1,3 +1,4 @@
+
 /* Css reste */
 * {
    margin: 0;
@@ -85,7 +86,7 @@ body{
 }
  /* box */
  #offerBox {
-    height: 300px;
+    height: 295px;
     width: 75%;
     margin-top: 5px;
     margin-left: 12%;
@@ -98,23 +99,26 @@ body{
     background-color: linear-gradient(245.59deg, #4d9559 0% , #38703d 28% , #133971 75.52% );
 
  }
- #offerBox #box-image{
-    display: flex;
-    height: 200px;
+ .d-flex .box-image{
+   display: flex;
+    height: 235px;
     border-radius: 20px;
-    width: auto;
+    width: 30%;
     align-items: end;
     margin-top: 25px;
-    margin-left: 270px;
+    margin-left:20px;
+
  }
- #offerBox #box-image img {
-    height: 200px;
+ 
+ #offerBox .d-flex .box-image img {
+   
+    height: 100%;
     width: auto;
     border-radius: 20px;
  }
  #box-text {
 
-    width: 40%;
+    width:70%;
     height: auto;
     margin-top: 25px;
     margin-left: 10px;
@@ -125,7 +129,7 @@ body{
     margin-top: 10px;
     margin-left:25px;
     height: auto;
-    width: 350px;
+    width: 90%;
     font-size: 24px;
  }
  #offerBox #offer-button {
@@ -133,7 +137,7 @@ body{
     background-color: #04AA6D;
     border: none;
     border-radius: 10px;
-    color: white;
+    color:black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -157,19 +161,19 @@ body{
  }
 
 
- /* /* @media (max-width: 800px) {
-    .Cata-items  .items {
+  @media (max-width: 800px) {
+    body {
       flex: 50%;
       max-width: 50%;
     }
   }
   
   @media (max-width: 600px) {
-    .Cata-items .items {
+    body {
       flex: 100%;
       max-width: 100%;
     } 
-} */
+} 
 
 
   .row {
@@ -205,36 +209,7 @@ body{
    
    }
 
- /* brand */
- #brand {
-    margin-top: 20px;
-    height: 400px;
-    width:75% ;
-    margin-left: 12%;
-    display: flex;
- }
- #brand #brand-items {
-    margin-top: 20px;
-    height: 100%;
-    width:100% ;
-    margin-left: 20px;
-    display: flex;
-    flex-wrap: wrap;
- }
- #brand #brand-items .brands {
-    height: 150px;
-    width: 150px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
- }
- #brand #brand-items .brands img {
-    padding: auto;
-    height: 150px;
-    width: 150px;
-    object-fit: fill;
- }
+ 
 
 
 
@@ -395,3 +370,20 @@ body{
    filter: none;
    pointer-events: auto;  /* Enable interaction with the clear content */
 }
+
+
+    .swiper-container {
+        width: 100%;
+        height: 350px;
+        margin: 20px 0;
+    }
+
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    
