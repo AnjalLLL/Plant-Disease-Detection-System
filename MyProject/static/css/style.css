@@ -458,7 +458,7 @@ body{
    #about {
     font-family: 'Times New Roman', Times, serif;
     font-size: 24px;
-    color: white;
+    color: rgb(12, 12, 12);
     margin-top: 20px;
     margin-bottom: 20px;
     height: 400px;
@@ -466,6 +466,7 @@ body{
     margin-left: 12%;
     display: flex;
     flex-wrap: wrap;
+   text-align: justify;
    
    }
    
