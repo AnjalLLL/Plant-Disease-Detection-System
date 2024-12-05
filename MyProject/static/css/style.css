@@ -11,10 +11,10 @@
 
 
 } */
-body {
+/* body {
    
    background: linear-gradient(135deg, #c8f407 0%, #62d448 50%, #138530 100%);
-}
+} */
 /* body {
    
    background: linear-gradient(135deg, #2C6B2F 0%, #4CAF50 50%, #81C784 100%);
@@ -29,9 +29,9 @@ body {
    background: linear-gradient(245.59deg, #4d9559 0% , #38703d 28% , #133971 75.52% );
 
 } */
-/* body{
-   background-color: aliceblue;
-} */
+body{
+   background-color: rgb(177, 188, 165);
+}
 
 #navbar {
    width: 75%;
