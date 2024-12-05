@@ -1,22 +1,37 @@
-<!--{% load static %}
-<html>
-<footer>
-        
-    <div id="footer">
-        <div id="footer-content">
-            <div id="content">
-                <h2>Plant Disease Detection System</h2><br>
-                <p></p>
-            </div>
-            
-        
-    </div>
-    <div id="footer-link">
+{% load static %}
+<footer class="footer">
+    <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+            <h3>Plant Disease Detection System</h3>
+            <p>
+                Our platform helps farmers, plant researcher and plant enthusiasts to detect diseases early, 
+                ensuring healthier crops and a sustainable future.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+            <h4>Quick Links</h4>
             <ul>
-                <li class="items"><a href="{% url "about" %}">About</a></li>
-               
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
             </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section contact">
+            <h4>Contact Us</h4>
+            <p>Email: anjalghimire890@gmail.com, ashmitatimalsina12@gmail.com , ruthghising20@gmail.com</p>
+            <p>Phone: +977 9840384691, 9840422664 , 9816873945</p>
+            <p>Location: Lalitpur,Nepal</p>
+        </div>
     </div>
- </footer>
-</body>
-</html>-->
+
+    <!-- Copyright Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Plant Disease Detection System by Ashmita Timalsina , Ruth Ghising and Anjal Ghimire. All rights reserved.</p>
+    </div>
+</footer>

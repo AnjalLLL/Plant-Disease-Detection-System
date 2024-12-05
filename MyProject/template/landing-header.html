@@ -11,32 +11,31 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
     <title>home</title>
     
 </head>
 <body>
     
     <nav id="navbar">
-        <div id="logo"><a href="#">Plant Disease Detection System</a></div> 
-        <ul>
+        <div id="logo"><a href="#">Plant Disease Detection System</a></div>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+        <ul id="menu">
             <li class="items"><a href='{% url "home" %}'>Home</a></li>
-
             <li class="items"><a href="{% url 'about' %}">About</a></li>
-            <li class="items">
-                <a  href="{% url 'login' %}">Login</a>
-            </li>
-            <li class="items">
-                <a href="{% url 'signup' %}" >Signup</a>
-            </li>
-            <li class="items">
-                <a href="{% url 'logout' %}" >Logout</a>
-            </li>
-
+            <li class="items"><a href="{% url 'login' %}">Login</a></li>
+            <li class="items"><a href="{% url 'signup' %}">Signup</a></li>
+            <li class="items"><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
-       
-
- </nav>
+    </nav>
+    
  </body>
+ <script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+    }
+    </script>
 </html>   
 
 

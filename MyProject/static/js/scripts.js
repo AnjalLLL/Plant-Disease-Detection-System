@@ -1,3 +1,10 @@
+// for navbar toogle
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+}
+
+
 window.onload = function() {
     const messageContainer = document.getElementById('message-container');
     if (messageContainer) {
