@@ -1,4 +1,8 @@
 from django.apps import AppConfig
+from .utils import create_admin
+
+def ready(self):
+    create_admin()
 
 
 class MyappConfig(AppConfig):

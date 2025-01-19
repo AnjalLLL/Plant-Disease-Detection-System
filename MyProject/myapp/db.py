@@ -47,10 +47,10 @@ except Exception as e:
     print(f"Error: {e}")
 
     
-   
+
 
 db=get_db()
-# Step 3: Access the 'disease_info' collection (will be created if it doesn't exist)
+# Step 3: Access the 'disease_data' collection (will be created if it doesn't exist)
 disease_collection = db.disease_data
 
 # Step 4: Define disease information to insert

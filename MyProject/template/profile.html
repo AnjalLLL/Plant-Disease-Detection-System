@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+/* General Styles */
+#profile {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+/* Profile Container Styles */
+.profile-container {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Profile Image Section Styles */
+.profile-image-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;  /* Circle shape */
+    object-fit: cover;
+    margin-bottom: 20px; /* Space below the profile picture */
+}
+
+/* Information Section Styles */
+.info-section p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Profile Details Container Styles */
+.profile-details-container {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Bio and Occupation Section Styles */
+.bio-section, .occupation-section {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Update Profile Button Section */
+.update-profile-btn-container {
+    margin-left: 44%;
+    display: flex;
+    justify-content: center; /* Center the button */
+    margin-top: 1px;
+    margin-bottom: 20px;
+}
+
+.btn-update-profile {
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update-profile:hover {
+    background-color: #0056b3;
+}
+
+
+
+    </style>
+</head>
+
+<div id="profile">
+<div class="profile-container">
+    <h3>Personal Information</h3>
+
+    <!-- Profile Picture Section at the top of personal information -->
+    <div class="profile-image-section">
+        {% if profile_data.profile_picture %}
+            <img src="{% url 'view_image' profile_data.profile_picture %}" alt="Profile Picture" class="profile-image">
+        {% else %}
+            No picture available
+        {% endif %}
+    </div>
+
+    <div class="info-section">
+        <p><strong>Full Name:</strong> {{ full_name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>Location:</strong> {{ location }}</p>
+    </div>
+</div>
+
+<div class="profile-details-container">
+    <h3>Profile Details</h3>
+    <div class="bio-section">
+        <p><strong>Bio:</strong> {% if profile_data %}{{ profile_data.bio }}{% else %}No bio available{% endif %}</p>
+    </div>
+    <div class="occupation-section">
+        <p><strong>Occupation:</strong> {% if profile_data %}{{ profile_data.occupation }}{% else %}Not specified{% endif %}</p>
+    </div>
+</div>
+
+<div class="update-profile-btn-container">
+    <a href="{% url 'update_profile' %}" class="btn-update-profile">Update Profile</a>
+</div>
+</div>
+
+
+{% endblock %}

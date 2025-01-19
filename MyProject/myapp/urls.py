@@ -15,6 +15,10 @@ urlpatterns = [
    # path("get_full_info/", views.get_full_info, name="get_full_info"),
    # path('disease_info/', views.disease_info, name='disease_info'),
     path('logout/', views.logout, name='logout'),
+    path('profile/', views.profile, name='user_profile'),
+    path('updateprofile/', views.update_profile, name='update_profile'),
+    path('image/<str:file_id>/', views.view_image, name='view_image'),
+   # path('admin/create_user/', views.create_user, name='create_user'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -20,8 +20,9 @@
                             <div id="col1">
                                 Full Name <br><input class="input" type="text" name="name" placeholder="Enter your name"required><br>
                                 Email <br><input class="input" type="email" name="email" placeholder="Enter your email"required><br>
-                                Gender: <input type="radio" name="Gender" value="m">Male 
-                                <input type="radio" name="Gender" value="f">Female<br><br>
+                                Gender: <input type="radio" name="gender" value="m">Male 
+                                <input type="radio" name="gender" value="f">Female
+                                <input type="radio" name="gender" value="m">Others<br><br>
                                 Address <br><input class="input" type="text" name="address"><br>
                             </div>
                             <div id="col2">
@@ -29,7 +30,7 @@
                                 Password <br><input class="input" type="password" name="password1" value=""required><br>
                                 Confirm Password <br><input class="input" type="password" name="password2" value=""required><br><br>
                                 <input class="button" type="submit" value="Sign Up">
-                                <p class="signup-link">Already have an account? <a href="login.html">Login here</a></p>
+                                <p class="signup-link">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
                             </div>
                            <div>
                             {% if messages %}

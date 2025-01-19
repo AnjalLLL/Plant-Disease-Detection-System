@@ -19,6 +19,12 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 from myapp import views
+from bson import ObjectId
+def user_id_pattern(value):
+    try:
+        return str(ObjectId(value))
+    except:
+        raise ValueError("Invalid ObjectId format")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +35,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('about/', views.about, name='about'),
     path('test/', views.test, name='test'),
-
+    path('profile/', views.profile, name='user_profile'),
+    path('updateprofile/', views.update_profile, name='update_profile'),
+    path('image/<str:file_id>/', views.view_image, name='view_image'),
+    
    # path("get_full_info/", views.get_full_info, name="get_full_info"),
     #path('disease_info/', views.disease_info, name='disease_info'),
     

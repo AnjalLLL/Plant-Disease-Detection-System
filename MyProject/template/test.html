@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +75,7 @@
     </style>
 </head>
 <body>
+   
     <div class="container">
         <div class="upload-box">
             <h3>Upload an Image for Prediction</h3>
@@ -84,12 +87,20 @@
                 <button type="submit" class="custom-button">Detect</button>
             </form>
         </div>
-
-        {% if predicted_class %}
+        
+ 
+    {% if error %}
+        <div class="detect-section">
+      
+          
+            <p style="color: red; font-size:20px">{{ error }}</p>
+        
+    </div>
+    {% elif predicted_class %}  
         <div class="detect-section">
             <h4>Predicted Class: {{ predicted_class }}</h4>
 
-            <h2>Disease Information</h2>
+            <h2> Information</h2>
             <p><strong>Name:</strong> {{ partial_info.disease_name }}</p>
             <p><strong>Description:</strong> {{ partial_info.description }}</p>
 
@@ -119,5 +130,6 @@
 
     
 </body>
+
 </html>
 {% endblock %}

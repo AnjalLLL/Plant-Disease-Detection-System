@@ -1,0 +1,151 @@
+/* Header Styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+/* Container Styles */
+div {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Section Title Styles */
+h3 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Profile Information */
+p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Profile Picture Section */
+.profile-info {
+    display: flex;               /* Flexbox to align image and text side by side */
+    align-items: center;         /* Center content vertically */
+    margin-bottom: 20px;         /* Adds space between picture and the text */
+}
+
+.profile-picture {
+    margin-right: 20px;          /* Space between the image and the text */
+}
+
+.profile-pic {
+    width: 150px;                /* Larger image size */
+    height: 150px;               /* Ensure the image is square */
+    border-radius: 50%;          /* Circular image */
+    object-fit: cover;           /* Ensures the image fills the circle proportionally */
+}
+
+
+/* Bio and Occupation Styles */
+.bio-section,
+.occupation-section {
+    margin-bottom: 20px;
+}
+
+.bio-section p,
+.occupation-section p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Update Profile Button */
+a.btn {
+    display: block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;          /* Centering the button with auto margins */
+    width: 200px;               /* Set a fixed width for the button */
+    text-align: center;
+}
+
+a.btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+        /* General Styles */
+        
+
+        /* Container for the form */
+        
+
+        /* Title */
+        h1 {
+            text-align: center;
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Form Elements */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Form fields */
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form input[type="file"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        form input[type="file"] {
+            padding: 5px;
+        }
+
+        /* Submit button */
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* CSRF token styling */
+        input[type="hidden"] {
+            display: none;
+        }
+
+        /* Paragraph styling for the form */
+        form p {
+            font-size: 1em;
+            color: #555;
+        }
